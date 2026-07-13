@@ -1,0 +1,28 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <div>
+    <label for="name">NAME</label>
+    <input id="name" type="text" formControlName="name" placeholder="Your name">
+  </div>
+
+  <div>
+    <label for="email">EMAIL</label>
+    <input id="email" type="email" formControlName="email" placeholder="you@company.com">
+  </div>
+
+  <div>
+    <label for="message">MESSAGE</label>
+    <textarea id="message" formControlName="message" placeholder="What are you building?"></textarea>
+  </div>
+
+  <button class="btn btn-primary submit-btn" type="submit" [disabled]="status() === 'sending'">
+    @if (status() === 'sending') {
+      Sending…
+    } @else {
+      Send message →
+    }
+  </button>
+
+  <div class="form-note" [class.is-error]="status() === 'error'" [class.is-sent]="status() === 'sent'">
+    {{ note }}
+  </div>
+</form>
