@@ -1,0 +1,21 @@
+<header>
+  <div class="wrap">
+    <nav>
+      <a class="logo" href="#top">bhargav<span>.dev</span></a>
+
+      <div class="nav-links" [class.open]="menuOpen">
+        <a href="#about" (click)="closeMenu()">about</a>
+        <a href="#experience" (click)="closeMenu()">experience</a>
+        <a href="#skills" (click)="closeMenu()">skills</a>
+        <a href="#education" (click)="closeMenu()">education</a>
+        <a href="#contact" (click)="closeMenu()">contact</a>
+      </div>
+
+      <a class="nav-cta" href="#contact">Get in touch</a>
+
+      <button class="menu-btn" type="button" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen" aria-label="Toggle navigation menu">
+        {{ menuOpen ? 'close' : 'menu' }}
+      </button>
+    </nav>
+  </div>
+</header>
