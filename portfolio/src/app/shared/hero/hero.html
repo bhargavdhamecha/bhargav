@@ -1,0 +1,46 @@
+<section class="hero" id="top">
+  <div>
+    <div class="eyebrow"><span class="dot"></span>AVAILABLE FOR JAVA / SPRING BOOT ROLES</div>
+    <h1>Building backend systems<br>that <span class="accent">don't fall over</span>.</h1>
+    <p class="lede">I'm Bhargav Dhamecha, a backend software engineer with 3+ years shipping RESTful APIs and microservices on Java &amp; Spring Boot — from Ahmedabad, India.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#contact">Get in touch →</a>
+      <a class="btn btn-ghost" href="#experience">View experience</a>
+      <a class="btn btn-ghost" href="https://github.com/bhargavdhamecha" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+
+  <div class="visual-wrap">
+    <div class="visual" [style.transform]="tilt()" (mousemove)="onTiltMove($event)" (mouseleave)="resetTilt()">
+      <div class="visual-glow"></div>
+
+      <div class="visual-header">
+        <span class="avatar">BD</span>
+        <div>
+          <div class="visual-name">Bhargav Dhamecha</div>
+          <div class="visual-role">{{ roleText() }}<span class="cursor"></span></div>
+        </div>
+      </div>
+
+      <div class="visual-stats">
+        <div class="vstat"><div class="vn">3+</div><div class="vl">YEARS</div></div>
+        <div class="vstat"><div class="vn">$80K</div><div class="vl">SAVED</div></div>
+        <div class="vstat"><div class="vn">30%</div><div class="vl">FASTER BUILDS</div></div>
+      </div>
+
+      <div class="visual-tags">
+        <span class="chip">Java</span>
+        <span class="chip">Spring Boot</span>
+        <span class="chip">Angular</span>
+        <span class="chip">AWS</span>
+      </div>
+
+      <a class="visual-cta" href="#contact">Open to explore new challenges <span class="arrow">→</span></a>
+    </div>
+  </div>
+
+  <a class="scroll-cue" href="#about" aria-label="Scroll to about section">
+    <span>SCROLL</span>
+    <span class="chevron"></span>
+  </a>
+</section>

@@ -1,56 +1,29 @@
 <div class="bg-grid"></div>
 
 <app-navbar></app-navbar>
+<app-float-contact></app-float-contact>
 
 <main class="wrap">
-  <section class="hero" id="top">
-    <div>
-      <div class="eyebrow"><span class="dot"></span>AVAILABLE FOR JAVA / SPRING BOOT ROLES</div>
-      <h1>Building backend systems<br>that <span class="accent">don't fall over</span>.</h1>
-      <p class="lede">I'm Bhargav Dhamecha, a backend software engineer with 3+ years shipping RESTful APIs and microservices on Java &amp; Spring Boot — from Ahmedabad, India.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#contact">Get in touch →</a>
-        <a class="btn btn-ghost" href="#experience">View experience</a>
-        <a class="btn btn-ghost" href="https://github.com/bhargavdhamecha" target="_blank" rel="noopener">GitHub</a>
-      </div>
-    </div>
-
-    <div class="term">
-      <div class="term-bar">
-        <span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span>
-        <span class="fname">profile.json</span>
-      </div>
-      <div class="term-body">
-        <div class="req"><span class="method">GET</span> /engineers/bhargav-dhamecha</div>
-        <pre>{{ '{' }}
-  <span class="key">"role"</span>: <span class="str">"Java Software Engineer"</span>,
-  <span class="key">"company"</span>: <span class="str">"Agile Infoways LTD."</span>,
-  <span class="key">"stack"</span>: [<span class="str">"Java"</span>, <span class="str">"Spring Boot"</span>, <span class="str">"Angular"</span>, <span class="str">"AWS"</span>],
-  <span class="key">"experience_years"</span>: <span class="num">3</span>,
-  <span class="key">"status"</span>: <span class="str">"exploring_new_challenges"</span><span class="cursor"></span>
-{{ '}' }}</pre>
-      </div>
-    </div>
-  </section>
+  <app-hero></app-hero>
 
   <hr class="divider">
 
   <section id="about">
-    <div class="section-head">
+    <div class="section-head" appReveal>
       <span class="tag">01 — ABOUT</span>
       <h2>A backend engineer who ships and supports what he builds.</h2>
     </div>
     <div class="about-grid">
-      <div>
+      <div appReveal>
         <p>I specialize in Java, Spring Boot, and microservices architecture — designing scalable RESTful APIs, optimizing performance, and keeping production systems healthy long after launch.</p>
         <p>I work comfortably in Agile/Scrum teams with CI/CD pipelines and DevOps practices, and I've picked up Angular along the way to bridge frontend integration when a project needs it.</p>
         <p>Based in Ahmedabad, Gujarat, currently looking for Java-focused Software Engineer roles.</p>
       </div>
-      <div class="stat-list">
-        <div class="stat"><div class="n">3+</div><div class="l">YEARS EXPERIENCE</div></div>
-        <div class="stat"><div class="n">$80K</div><div class="l">ANNUAL COST SAVED</div></div>
-        <div class="stat"><div class="n">30%</div><div class="l">BUILD TIME REDUCED</div></div>
-        <div class="stat"><div class="n">4</div><div class="l">ROLES AT 2 COMPANIES</div></div>
+      <div class="stat-list" appReveal [appRevealDelay]="120">
+        <div class="stat"><div class="n" appCountUp>3+</div><div class="l">YEARS EXPERIENCE</div></div>
+        <div class="stat"><div class="n" appCountUp>$80K</div><div class="l">ANNUAL COST SAVED</div></div>
+        <div class="stat"><div class="n" appCountUp>30%</div><div class="l">BUILD TIME REDUCED</div></div>
+        <div class="stat"><div class="n" appCountUp>4</div><div class="l">ROLES AT 2 COMPANIES</div></div>
       </div>
     </div>
   </section>
@@ -58,13 +31,13 @@
   <hr class="divider">
 
   <section id="experience">
-    <div class="section-head">
+    <div class="section-head" appReveal>
       <span class="tag">02 — EXPERIENCE</span>
       <h2>Where the work happened.</h2>
     </div>
     <div class="log">
-      @for (entry of experience; track entry.role) {
-        <div class="entry">
+      @for (entry of experience; track entry.role; let i = $index) {
+        <div class="entry" appReveal [appRevealDelay]="i * 90">
           <div class="meta">{{ entry.period }}</div>
           <div class="role">{{ entry.role }}</div>
           <div class="company">{{ entry.company }}</div>
@@ -81,13 +54,13 @@
   <hr class="divider">
 
   <section id="skills">
-    <div class="section-head">
+    <div class="section-head" appReveal>
       <span class="tag">03 — SKILLS</span>
       <h2>The stack, end to end.</h2>
     </div>
     <div class="skill-groups">
-      @for (group of skills; track group.label) {
-        <div class="skill-card">
+      @for (group of skills; track group.label; let i = $index) {
+        <div class="skill-card" appReveal [appRevealDelay]="i * 90">
           <h3>{{ group.label }}</h3>
           <div class="chip-row">
             @for (item of group.items; track item) {
@@ -102,11 +75,11 @@
   <hr class="divider">
 
   <section id="education">
-    <div class="section-head">
+    <div class="section-head" appReveal>
       <span class="tag">04 — EDUCATION</span>
       <h2>Foundations.</h2>
     </div>
-    <div class="edu-card">
+    <div class="edu-card" appReveal>
       <div>
         <div class="role">{{ education.degree }}</div>
         <div class="company">{{ education.school }}</div>
@@ -118,12 +91,12 @@
   <hr class="divider">
 
   <section id="contact">
-    <div class="section-head">
+    <div class="section-head" appReveal>
       <span class="tag">05 — CONTACT</span>
       <h2>Let's build something reliable.</h2>
     </div>
     <div class="contact-grid">
-      <div class="contact-links">
+      <div class="contact-links" appReveal>
         <a class="clink" href="mailto:bdhamecha.dev@gmail.com"><span class="k">EMAIL</span><span class="v">bdhamecha.dev&#64;gmail.com</span></a>
         <a class="clink" href="tel:+919328260311"><span class="k">PHONE</span><span class="v">+91 93282 60311</span></a>
         <a class="clink" href="https://github.com/bhargavdhamecha" target="_blank" rel="noopener"><span class="k">GITHUB</span><span class="v">github.com/bhargavdhamecha</span></a>
@@ -131,7 +104,9 @@
         <div class="clink"><span class="k">LOCATION</span><span class="v">Ahmedabad, Gujarat, India</span></div>
       </div>
 
-      <app-contact-form></app-contact-form>
+      <div appReveal [appRevealDelay]="120">
+        <app-contact-form></app-contact-form>
+      </div>
     </div>
   </section>
 </main>
