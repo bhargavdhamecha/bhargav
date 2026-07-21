@@ -1,0 +1,112 @@
+:host {
+  display: contents;
+}
+
+.float-contact {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 60;
+  font-family: var(--mono);
+}
+
+.float-toggle {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  background: var(--amber);
+  border: none;
+  border-radius: 7px;
+  padding: 13px 20px 13px 16px;
+  box-shadow: 0 18px 34px -12px rgba(232, 163, 61, 0.5), 0 6px 16px -6px rgba(0, 0, 0, 0.5);
+  font-family: var(--mono);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.float-toggle:hover {
+  background: #f0b25b;
+  transform: translateY(-2px);
+}
+
+.pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ink);
+  box-shadow: 0 0 0 0 rgba(11, 18, 32, 0.45);
+  animation: ring 2.2s infinite;
+  flex-shrink: 0;
+}
+
+@keyframes ring {
+  0% { box-shadow: 0 0 0 0 rgba(11, 18, 32, 0.4); }
+  70% { box-shadow: 0 0 0 7px rgba(11, 18, 32, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(11, 18, 32, 0); }
+}
+
+.float-panel {
+  position: absolute;
+  bottom: 58px;
+  right: 0;
+  width: 248px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+  box-shadow: 0 22px 48px -14px rgba(0, 0, 0, 0.75);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.float-panel.open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.float-panel a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 16px;
+  font-size: 12.5px;
+  color: var(--text);
+  border-bottom: 1px solid var(--line);
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.float-panel a:last-child {
+  border-bottom: none;
+}
+
+.float-panel a:hover {
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--teal);
+}
+
+.float-panel a svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  color: var(--teal);
+}
+
+@media (max-width: 480px) {
+  .float-contact {
+    right: 16px;
+    bottom: 16px;
+  }
+
+  .float-panel {
+    width: calc(100vw - 32px);
+    max-width: 280px;
+  }
+}
