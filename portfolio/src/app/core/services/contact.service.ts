@@ -1,15 +1,24 @@
 import { Injectable, inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, map } from 'rxjs';
 import { ContactRequest, ContactResponse } from '../models/contact.model';
-import { environment } from '../../../environments/environment';
+
+function encodeFormData(data: Record<string, string>): string {
+  return Object.keys(data)
+    .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+    .join('&');
+}
 
 @Injectable({ providedIn: 'root' })
 export class ContactService {
   private http = inject(HttpClient);
-  private apiUrl = `${environment.apiBaseUrl}/api/contact`;
 
   send(payload: ContactRequest): Observable<ContactResponse> {
-    return this.http.post<ContactResponse>(this.apiUrl, payload);
+    const body = encodeFormData({ 'form-name': 'contact', ...payload });
+    const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
+
+    return this.http
+      .post('/', body, { headers, responseType: 'text' })
+      .pipe(map(() => ({ success: true, message: 'Message sent.' })));
   }
 }

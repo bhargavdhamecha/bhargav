@@ -21,8 +21,10 @@
       Send message →
     }
   </button>
+</form>
 
-  <div class="form-note" [class.is-error]="status() === 'error'" [class.is-sent]="status() === 'sent'">
+@if (status() === 'sent' || status() === 'error') {
+  <div class="toast" [class.is-error]="status() === 'error'" [class.is-sent]="status() === 'sent'" role="status">
     {{ note }}
   </div>
-</form>
+}

@@ -44,17 +44,46 @@ textarea {
   cursor: not-allowed;
 }
 
-.form-note {
+.toast {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 1000;
+  max-width: 320px;
+  padding: 14px 18px;
+  border-radius: 8px;
   font-family: var(--mono);
-  font-size: 11px;
-  color: var(--text-dim);
-  margin-top: 4px;
+  font-size: 12.5px;
+  line-height: 1.5;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+  animation: toast-in 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.form-note.is-sent {
+.toast.is-sent {
   color: var(--teal);
+  border-color: var(--teal);
 }
 
-.form-note.is-error {
+.toast.is-error {
   color: #e8654a;
+  border-color: #e8654a;
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toast {
+    animation: none;
+  }
 }

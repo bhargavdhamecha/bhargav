@@ -1,4 +1,3 @@
 export const environment = {
-  production: true,
-  apiBaseUrl: 'https://api.bhargavdhamecha.dev'
+  production: true
 };

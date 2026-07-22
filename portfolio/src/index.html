@@ -13,5 +13,14 @@
 </head>
 <body>
   <app-root></app-root>
+
+  <!-- Static form so Netlify's build-time form detection picks up the "contact" form.
+       The real form is rendered by Angular and submitted via fetch to "/". -->
+  <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="text" name="name">
+    <input type="email" name="email">
+    <textarea name="message"></textarea>
+    <input type="text" name="bot-field">
+  </form>
 </body>
 </html>
