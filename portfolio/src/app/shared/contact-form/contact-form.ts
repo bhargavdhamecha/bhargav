@@ -23,6 +23,25 @@ export class ContactForm {
     message: ['', [Validators.required, Validators.minLength(10)]]
   });
 
+  fieldError(field: 'name' | 'email' | 'message'): string {
+    const control = this.form.get(field);
+    if (!control || !control.touched || !control.errors) {
+      return '';
+    }
+
+    if (control.errors['required']) {
+      return 'This field is required.';
+    }
+    if (control.errors['email']) {
+      return 'Enter a valid email address.';
+    }
+    if (control.errors['minlength']) {
+      const requiredLength = control.errors['minlength'].requiredLength;
+      return `Must be at least ${requiredLength} characters.`;
+    }
+    return 'This field is invalid.';
+  }
+
   get note(): string {
     switch (this.status()) {
       case 'sent':
