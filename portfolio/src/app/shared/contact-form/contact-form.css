@@ -30,6 +30,18 @@ textarea:focus {
   border-color: var(--amber);
 }
 
+input.is-invalid,
+textarea.is-invalid {
+  border-color: #e8654a;
+}
+
+.field-error {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: #e8654a;
+  margin-top: 6px;
+}
+
 textarea {
   resize: vertical;
   min-height: 110px;

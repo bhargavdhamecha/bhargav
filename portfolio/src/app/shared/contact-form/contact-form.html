@@ -2,17 +2,26 @@
   <input type="hidden" name="form-name" value="contact">
   <div>
     <label for="name">NAME</label>
-    <input id="name" type="text" formControlName="name" placeholder="Your name">
+    <input id="name" type="text" formControlName="name" placeholder="Your name" [class.is-invalid]="fieldError('name')">
+    @if (fieldError('name'); as error) {
+      <div class="field-error">{{ error }}</div>
+    }
   </div>
 
   <div>
     <label for="email">EMAIL</label>
-    <input id="email" type="email" formControlName="email" placeholder="you@company.com">
+    <input id="email" type="email" formControlName="email" placeholder="you@company.com" [class.is-invalid]="fieldError('email')">
+    @if (fieldError('email'); as error) {
+      <div class="field-error">{{ error }}</div>
+    }
   </div>
 
   <div>
     <label for="message">MESSAGE</label>
-    <textarea id="message" formControlName="message" placeholder="What are you building?"></textarea>
+    <textarea id="message" formControlName="message" placeholder="What are you building?" [class.is-invalid]="fieldError('message')"></textarea>
+    @if (fieldError('message'); as error) {
+      <div class="field-error">{{ error }}</div>
+    }
   </div>
 
   <button class="btn btn-primary submit-btn" type="submit" [disabled]="status() === 'sending'">
