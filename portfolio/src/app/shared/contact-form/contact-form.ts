@@ -25,14 +25,12 @@ export class ContactForm {
 
   get note(): string {
     switch (this.status()) {
-      case 'sending':
-        return 'Sending…';
       case 'sent':
-        return 'Message sent — thanks, I\u2019ll get back to you soon.';
+        return 'Message sent successfully — thanks, I’ll get back to you soon.';
       case 'error':
-        return 'Could not reach the server. Is the Spring Boot backend running on :8080?';
+        return 'Something went wrong sending your message. Please try again.';
       default:
-        return 'Posts to /api/contact on the Spring Boot backend.';
+        return '';
     }
   }
 
@@ -47,8 +45,16 @@ export class ContactForm {
       next: () => {
         this.status.set('sent');
         this.form.reset();
+        this.dismissNoteAfterDelay();
       },
-      error: () => this.status.set('error')
+      error: () => {
+        this.status.set('error');
+        this.dismissNoteAfterDelay();
+      }
     });
+  }
+
+  private dismissNoteAfterDelay(): void {
+    setTimeout(() => this.status.set('idle'), 4000);
   }
 }
