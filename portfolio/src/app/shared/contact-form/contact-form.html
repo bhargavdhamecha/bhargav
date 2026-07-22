@@ -1,4 +1,5 @@
-<form [formGroup]="form" (ngSubmit)="submit()">
+<form name="contact" method="post" data-netlify="true" [formGroup]="form" (ngSubmit)="submit()">
+  <input type="hidden" name="form-name" value="contact">
   <div>
     <label for="name">NAME</label>
     <input id="name" type="text" formControlName="name" placeholder="Your name">
