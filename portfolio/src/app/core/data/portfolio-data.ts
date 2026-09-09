@@ -4,7 +4,7 @@ export const EXPERIENCE: ExperienceEntry[] = [
   {
     role: 'Java Software Engineer',
     company: 'Agile Infoways LTD. · Ahmedabad, Gujarat',
-    period: 'SEP 2025 — PRESENT',
+    period: 'OCT 2025 — PRESENT',
     highlights: [
       'Collaborated with offshore teams at Paychex to design, develop, and deliver backend features across distributed teams.',
       'Designed a digital billing solution replacing paper statements — cutting operational costs by ~$80K/year.',
@@ -14,7 +14,7 @@ export const EXPERIENCE: ExperienceEntry[] = [
   {
     role: 'Associate Software Engineer',
     company: 'Asite Solution LTD. · Ahmedabad, Gujarat',
-    period: 'SEP 2024 — AUG 2025',
+    period: 'SEP 2024 — JULY 2025',
     highlights: [
       'Wrote and maintained JUnit test suites, lifting code coverage across microservices.',
       'Cut build time by 30% through targeted code refactoring.',
